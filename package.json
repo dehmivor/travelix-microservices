@@ -3,7 +3,13 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-    "build": "nx build",
+    "build": "nx run-many --target=build --all",
+    "build:api-gateway": "nx build api-gateway",
+    "build:auth": "nx build auth-service",
+    "build:user": "nx build user-service",
+    "build:tour": "nx build tour-service",
+    "build:booking": "nx build booking-service",
+    "build:notification": "nx build notification-service",
     "test": "nx test",
     "lint": "nx lint",
     "serve": "nx serve"

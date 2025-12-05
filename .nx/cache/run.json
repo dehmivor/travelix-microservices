@@ -1,0 +1,76 @@
+{
+  "run": {
+    "command": "nx run-many --target=build --all",
+    "startTime": "2025-12-05T03:04:03.648Z",
+    "endTime": "2025-12-05T03:04:04.765Z",
+    "inner": false
+  },
+  "tasks": [
+    {
+      "taskId": "booking-service:build",
+      "target": "build",
+      "projectName": "booking-service",
+      "hash": "14063346011386748602",
+      "startTime": "2025-12-05T03:04:03.657Z",
+      "endTime": "2025-12-05T03:04:03.680Z",
+      "params": "",
+      "cacheStatus": "local-cache-hit",
+      "status": 0
+    },
+    {
+      "taskId": "notification-service:build",
+      "target": "build",
+      "projectName": "notification-service",
+      "hash": "11484542936163610457",
+      "startTime": "2025-12-05T03:04:03.657Z",
+      "endTime": "2025-12-05T03:04:03.681Z",
+      "params": "",
+      "cacheStatus": "local-cache-hit",
+      "status": 0
+    },
+    {
+      "taskId": "auth-service:build",
+      "target": "build",
+      "projectName": "auth-service",
+      "hash": "3868723631600292028",
+      "startTime": "2025-12-05T03:04:03.657Z",
+      "endTime": "2025-12-05T03:04:03.682Z",
+      "params": "",
+      "cacheStatus": "local-cache-hit",
+      "status": 0
+    },
+    {
+      "taskId": "tour-service:build",
+      "target": "build",
+      "projectName": "tour-service",
+      "hash": "14409078169109439497",
+      "startTime": "2025-12-05T03:04:03.684Z",
+      "endTime": "2025-12-05T03:04:03.691Z",
+      "params": "",
+      "cacheStatus": "local-cache-hit",
+      "status": 0
+    },
+    {
+      "taskId": "user-service:build",
+      "target": "build",
+      "projectName": "user-service",
+      "hash": "7656088927519601500",
+      "startTime": "2025-12-05T03:04:03.685Z",
+      "endTime": "2025-12-05T03:04:03.692Z",
+      "params": "",
+      "cacheStatus": "local-cache-hit",
+      "status": 0
+    },
+    {
+      "taskId": "api-gateway:build",
+      "target": "build",
+      "projectName": "api-gateway",
+      "hash": "476423793017310994",
+      "startTime": "2025-12-05T03:04:03.686Z",
+      "endTime": "2025-12-05T03:04:04.765Z",
+      "params": "",
+      "cacheStatus": "cache-miss",
+      "status": 0
+    }
+  ]
+}

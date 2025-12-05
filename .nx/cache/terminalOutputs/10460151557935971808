@@ -1,0 +1,15 @@
+Compiling TypeScript files for project "api-gateway"...
+[96mapps/api-gateway/src/app/app.module.ts[0m:[93m9[0m:[93m7[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'ttl' does not exist in type 'ThrottlerModuleOptions'.
+
+[7m9[0m       ttl: 60,
+[7m [0m [91m      ~~~[0m
+[96mapps/api-gateway/src/main.ts[0m:[93m10[0m:[93m23[0m - [91merror[0m[90m TS2554: [0mExpected 3 arguments, but got 0.
+
+[7m10[0m   app.useGlobalGuards(new ThrottlerGuard());
+[7m  [0m [91m                      ~~~~~~~~~~~~~~~~~~~~[0m
+
+  [96mnode_modules/@nestjs/throttler/dist/throttler.guard.d.ts[0m:[93m14[0m:[93m17[0m
+    [7m14[0m     constructor(options: ThrottlerModuleOptions, storageService: ThrottlerStorage, reflector: Reflector);
+    [7m  [0m [96m                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+    An argument for 'options' was not provided.
+

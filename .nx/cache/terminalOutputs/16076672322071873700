@@ -1,0 +1,6 @@
+Compiling TypeScript files for project "api-gateway"...
+[96mapps/api-gateway/src/app/app.module.ts[0m:[93m9[0m:[93m7[0m - [91merror[0m[90m TS2353: [0mObject literal may only specify known properties, and 'limiters' does not exist in type 'ThrottlerModuleOptions'.
+
+[7m9[0m       limiters: [
+[7m [0m [91m      ~~~~~~~~[0m
+

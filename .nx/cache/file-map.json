@@ -18,7 +18,6 @@
     "pg": "^8.11.3",
     "bullmq": "^5.3.0",
     "ioredis": "^5.3.2",
-    "ioredis-lock": "^1.0.0",
     "class-validator": "^0.14.0",
     "class-transformer": "^0.5.1",
     "reflect-metadata": "^0.1.14",
@@ -73,7 +72,293 @@
     }
   ],
   "fileMap": {
+    "nonProjectFiles": [
+      {
+        "file": "k8s/booking-service-deployment.yaml",
+        "hash": "12750719730796325652"
+      },
+      {
+        "file": "k8s/tour-service-deployment.yaml",
+        "hash": "8932274389245680750"
+      },
+      {
+        "file": "scripts/setup-helm.sh",
+        "hash": "5836054987385752433"
+      },
+      {
+        "file": "scripts/build-docker.sh",
+        "hash": "16405123453090354889"
+      },
+      {
+        "file": ".gitignore",
+        "hash": "9777035501378713631"
+      },
+      {
+        "file": "k8s/user-service-deployment.yaml",
+        "hash": "15799382325531852228"
+      },
+      {
+        "file": "scripts/deploy-k8s.sh",
+        "hash": "4763638048373001541"
+      },
+      {
+        "file": "PROJECT_SUMMARY.md",
+        "hash": "9788031570462304171"
+      },
+      {
+        "file": ".github/workflows/ci-cd.yml",
+        "hash": "1813907988475600812"
+      },
+      {
+        "file": "k8s/ingress.yaml",
+        "hash": "5311934793347693"
+      },
+      {
+        "file": ".dockerignore",
+        "hash": "17512427502433759181"
+      },
+      {
+        "file": "Dockerfile",
+        "hash": "92289625696961706"
+      },
+      {
+        "file": "LICENSE",
+        "hash": "14964339060591562771"
+      },
+      {
+        "file": "k8s/notification-service-deployment.yaml",
+        "hash": "16981466709565059743"
+      },
+      {
+        "file": ".prettierrc",
+        "hash": "11191096712733701435"
+      },
+      {
+        "file": "tsconfig.base.json",
+        "hash": "8779793145300868551"
+      },
+      {
+        "file": "package-lock.json",
+        "hash": "47785883039788567"
+      },
+      {
+        "file": "k8s/api-gateway-deployment.yaml",
+        "hash": "8191996272044409192"
+      },
+      {
+        "file": "package.json",
+        "hash": "599649084575899643"
+      },
+      {
+        "file": "k8s/secrets.yaml",
+        "hash": "16600775799920633744"
+      },
+      {
+        "file": "nx.json",
+        "hash": "346311122596494916"
+      },
+      {
+        "file": "README.md",
+        "hash": "7392932138302290696"
+      },
+      {
+        "file": "k8s/namespace.yaml",
+        "hash": "11858360009211189075"
+      },
+      {
+        "file": "docker-compose.yml",
+        "hash": "4739696077011454139"
+      },
+      {
+        "file": ".eslintrc.json",
+        "hash": "13747010344719918160"
+      },
+      {
+        "file": "DEPLOYMENT.md",
+        "hash": "12625277787952720528"
+      },
+      {
+        "file": "k8s/configmap.yaml",
+        "hash": "7622379514785029890"
+      },
+      {
+        "file": "k8s/auth-service-deployment.yaml",
+        "hash": "12883880115122102067"
+      }
+    ],
     "projectFileMap": {
+      "booking-service": [
+        {
+          "file": "apps/booking-service/project.json",
+          "hash": "4921492525063410877"
+        },
+        {
+          "file": "apps/booking-service/src/app/app.module.ts",
+          "hash": "2389637190207356205",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/config",
+            "npm:@nestjs/typeorm",
+            "npm:@nestjs/bullmq"
+          ]
+        },
+        {
+          "file": "apps/booking-service/src/app/booking.controller.ts",
+          "hash": "14389839354113447586",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/booking-service/src/app/booking.service.ts",
+          "hash": "8904687017567664621",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/typeorm",
+            "npm:typeorm",
+            "npm:@nestjs/bullmq",
+            "npm:bullmq",
+            "npm:ioredis"
+          ]
+        },
+        {
+          "file": "apps/booking-service/src/app/dto/create-booking.dto.ts",
+          "hash": "44289497878759177",
+          "deps": [
+            "npm:class-validator"
+          ]
+        },
+        {
+          "file": "apps/booking-service/src/app/entities/booking.entity.ts",
+          "hash": "10285895758222312521",
+          "deps": [
+            "npm:typeorm"
+          ]
+        },
+        {
+          "file": "apps/booking-service/src/main.ts",
+          "hash": "10238759061968870034",
+          "deps": [
+            "npm:@nestjs/core",
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/booking-service/tsconfig.app.json",
+          "hash": "7404326211978232618"
+        },
+        {
+          "file": "apps/booking-service/tsconfig.json",
+          "hash": "8394972031469720038"
+        }
+      ],
+      "api-gateway": [
+        {
+          "file": "apps/api-gateway/project.json",
+          "hash": "15240603015143207397"
+        },
+        {
+          "file": "apps/api-gateway/src/app/app.controller.ts",
+          "hash": "1833228072795150815",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/api-gateway/src/app/app.module.ts",
+          "hash": "16720156811725593265",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/throttler",
+            "npm:@nestjs/core"
+          ]
+        },
+        {
+          "file": "apps/api-gateway/src/main.ts",
+          "hash": "1873663857638256258",
+          "deps": [
+            "npm:@nestjs/core",
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/api-gateway/tsconfig.app.json",
+          "hash": "7404326211978232618"
+        },
+        {
+          "file": "apps/api-gateway/tsconfig.json",
+          "hash": "8394972031469720038"
+        }
+      ],
+      "tour-service": [
+        {
+          "file": "apps/tour-service/project.json",
+          "hash": "4371807590552638748"
+        },
+        {
+          "file": "apps/tour-service/src/app/app.module.ts",
+          "hash": "8433538461494567749",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/config",
+            "npm:@nestjs/typeorm"
+          ]
+        },
+        {
+          "file": "apps/tour-service/src/app/dto/create-tour.dto.ts",
+          "hash": "12873910188580571120",
+          "deps": [
+            "npm:class-validator"
+          ]
+        },
+        {
+          "file": "apps/tour-service/src/app/dto/update-tour.dto.ts",
+          "hash": "12835894084601532195",
+          "deps": [
+            "npm:class-validator"
+          ]
+        },
+        {
+          "file": "apps/tour-service/src/app/entities/tour.entity.ts",
+          "hash": "14029482715805417705",
+          "deps": [
+            "npm:typeorm"
+          ]
+        },
+        {
+          "file": "apps/tour-service/src/app/tour.controller.ts",
+          "hash": "3914632008109309716",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/tour-service/src/app/tour.service.ts",
+          "hash": "12916894182582469096",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/typeorm",
+            "npm:typeorm",
+            "npm:ioredis"
+          ]
+        },
+        {
+          "file": "apps/tour-service/src/main.ts",
+          "hash": "7597873749396614629",
+          "deps": [
+            "npm:@nestjs/core",
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/tour-service/tsconfig.app.json",
+          "hash": "7404326211978232618"
+        },
+        {
+          "file": "apps/tour-service/tsconfig.json",
+          "hash": "8394972031469720038"
+        }
+      ],
       "auth-service": [
         {
           "file": "apps/auth-service/project.json",
@@ -146,179 +431,6 @@
           "hash": "8394972031469720038"
         }
       ],
-      "booking-service": [
-        {
-          "file": "apps/booking-service/project.json",
-          "hash": "4921492525063410877"
-        },
-        {
-          "file": "apps/booking-service/src/app/app.module.ts",
-          "hash": "2389637190207356205",
-          "deps": [
-            "npm:@nestjs/common",
-            "npm:@nestjs/config",
-            "npm:@nestjs/typeorm",
-            "npm:@nestjs/bullmq"
-          ]
-        },
-        {
-          "file": "apps/booking-service/src/app/booking.controller.ts",
-          "hash": "14389839354113447586",
-          "deps": [
-            "npm:@nestjs/common"
-          ]
-        },
-        {
-          "file": "apps/booking-service/src/app/booking.service.ts",
-          "hash": "657761563895864366",
-          "deps": [
-            "npm:@nestjs/common",
-            "npm:@nestjs/typeorm",
-            "npm:typeorm",
-            "npm:@nestjs/bullmq",
-            "npm:bullmq",
-            "npm:ioredis",
-            "npm:ioredis-lock"
-          ]
-        },
-        {
-          "file": "apps/booking-service/src/app/dto/create-booking.dto.ts",
-          "hash": "44289497878759177",
-          "deps": [
-            "npm:class-validator"
-          ]
-        },
-        {
-          "file": "apps/booking-service/src/app/entities/booking.entity.ts",
-          "hash": "10285895758222312521",
-          "deps": [
-            "npm:typeorm"
-          ]
-        },
-        {
-          "file": "apps/booking-service/src/main.ts",
-          "hash": "10238759061968870034",
-          "deps": [
-            "npm:@nestjs/core",
-            "npm:@nestjs/common"
-          ]
-        },
-        {
-          "file": "apps/booking-service/tsconfig.app.json",
-          "hash": "7404326211978232618"
-        },
-        {
-          "file": "apps/booking-service/tsconfig.json",
-          "hash": "8394972031469720038"
-        }
-      ],
-      "user-service": [
-        {
-          "file": "apps/user-service/project.json",
-          "hash": "9141334091619532887"
-        },
-        {
-          "file": "apps/user-service/src/app/app.module.ts",
-          "hash": "14051680158335216909",
-          "deps": [
-            "npm:@nestjs/common",
-            "npm:@nestjs/config",
-            "npm:@nestjs/typeorm"
-          ]
-        },
-        {
-          "file": "apps/user-service/src/app/dto/create-user.dto.ts",
-          "hash": "898331157022465231",
-          "deps": [
-            "npm:class-validator"
-          ]
-        },
-        {
-          "file": "apps/user-service/src/app/dto/update-user.dto.ts",
-          "hash": "13655217566156425498",
-          "deps": [
-            "npm:@nestjs/mapped-types"
-          ]
-        },
-        {
-          "file": "apps/user-service/src/app/entities/user.entity.ts",
-          "hash": "7996285679480213105",
-          "deps": [
-            "npm:typeorm"
-          ]
-        },
-        {
-          "file": "apps/user-service/src/app/user.controller.ts",
-          "hash": "15038731620061160634",
-          "deps": [
-            "npm:@nestjs/common"
-          ]
-        },
-        {
-          "file": "apps/user-service/src/app/user.service.ts",
-          "hash": "15451999303238862031",
-          "deps": [
-            "npm:@nestjs/common",
-            "npm:@nestjs/typeorm",
-            "npm:typeorm"
-          ]
-        },
-        {
-          "file": "apps/user-service/src/main.ts",
-          "hash": "10441740590301627967",
-          "deps": [
-            "npm:@nestjs/core",
-            "npm:@nestjs/common"
-          ]
-        },
-        {
-          "file": "apps/user-service/tsconfig.app.json",
-          "hash": "7404326211978232618"
-        },
-        {
-          "file": "apps/user-service/tsconfig.json",
-          "hash": "8394972031469720038"
-        }
-      ],
-      "api-gateway": [
-        {
-          "file": "apps/api-gateway/project.json",
-          "hash": "15240603015143207397"
-        },
-        {
-          "file": "apps/api-gateway/src/app/app.controller.ts",
-          "hash": "1833228072795150815",
-          "deps": [
-            "npm:@nestjs/common"
-          ]
-        },
-        {
-          "file": "apps/api-gateway/src/app/app.module.ts",
-          "hash": "2869224033133700397",
-          "deps": [
-            "npm:@nestjs/common",
-            "npm:@nestjs/throttler",
-            "npm:@nestjs/core"
-          ]
-        },
-        {
-          "file": "apps/api-gateway/src/main.ts",
-          "hash": "12071328882543511899",
-          "deps": [
-            "npm:@nestjs/core",
-            "npm:@nestjs/throttler",
-            "npm:@nestjs/common"
-          ]
-        },
-        {
-          "file": "apps/api-gateway/tsconfig.app.json",
-          "hash": "7404326211978232618"
-        },
-        {
-          "file": "apps/api-gateway/tsconfig.json",
-          "hash": "8394972031469720038"
-        }
-      ],
       "notification-service": [
         {
           "file": "apps/notification-service/project.json",
@@ -365,14 +477,14 @@
           "hash": "8394972031469720038"
         }
       ],
-      "tour-service": [
+      "user-service": [
         {
-          "file": "apps/tour-service/project.json",
-          "hash": "4371807590552638748"
+          "file": "apps/user-service/project.json",
+          "hash": "9141334091619532887"
         },
         {
-          "file": "apps/tour-service/src/app/app.module.ts",
-          "hash": "1135944338990111685",
+          "file": "apps/user-service/src/app/app.module.ts",
+          "hash": "14051680158335216909",
           "deps": [
             "npm:@nestjs/common",
             "npm:@nestjs/config",
@@ -380,36 +492,36 @@
           ]
         },
         {
-          "file": "apps/tour-service/src/app/dto/create-tour.dto.ts",
-          "hash": "12873910188580571120",
+          "file": "apps/user-service/src/app/dto/create-user.dto.ts",
+          "hash": "898331157022465231",
           "deps": [
             "npm:class-validator"
           ]
         },
         {
-          "file": "apps/tour-service/src/app/dto/update-tour.dto.ts",
-          "hash": "85312618830587803",
+          "file": "apps/user-service/src/app/dto/update-user.dto.ts",
+          "hash": "17302335606158286846",
           "deps": [
-            "npm:@nestjs/mapped-types"
+            "npm:class-validator"
           ]
         },
         {
-          "file": "apps/tour-service/src/app/entities/tour.entity.ts",
-          "hash": "14029482715805417705",
+          "file": "apps/user-service/src/app/entities/user.entity.ts",
+          "hash": "7996285679480213105",
           "deps": [
             "npm:typeorm"
           ]
         },
         {
-          "file": "apps/tour-service/src/app/tour.controller.ts",
-          "hash": "3914632008109309716",
+          "file": "apps/user-service/src/app/user.controller.ts",
+          "hash": "15038731620061160634",
           "deps": [
             "npm:@nestjs/common"
           ]
         },
         {
-          "file": "apps/tour-service/src/app/tour.service.ts",
-          "hash": "15215332978719596075",
+          "file": "apps/user-service/src/app/user.service.ts",
+          "hash": "15451999303238862031",
           "deps": [
             "npm:@nestjs/common",
             "npm:@nestjs/typeorm",
@@ -417,56 +529,22 @@
           ]
         },
         {
-          "file": "apps/tour-service/src/main.ts",
-          "hash": "7597873749396614629",
+          "file": "apps/user-service/src/main.ts",
+          "hash": "10441740590301627967",
           "deps": [
             "npm:@nestjs/core",
             "npm:@nestjs/common"
           ]
         },
         {
-          "file": "apps/tour-service/tsconfig.app.json",
+          "file": "apps/user-service/tsconfig.app.json",
           "hash": "7404326211978232618"
         },
         {
-          "file": "apps/tour-service/tsconfig.json",
+          "file": "apps/user-service/tsconfig.json",
           "hash": "8394972031469720038"
         }
       ]
-    },
-    "nonProjectFiles": [
-      {
-        "file": ".eslintrc.json",
-        "hash": "13747010344719918160"
-      },
-      {
-        "file": ".gitignore",
-        "hash": "9777035501378713631"
-      },
-      {
-        "file": ".prettierrc",
-        "hash": "11191096712733701435"
-      },
-      {
-        "file": "LICENSE",
-        "hash": "14964339060591562771"
-      },
-      {
-        "file": "README.md",
-        "hash": "15595636116897513261"
-      },
-      {
-        "file": "nx.json",
-        "hash": "346311122596494916"
-      },
-      {
-        "file": "package.json",
-        "hash": "9470516030610254912"
-      },
-      {
-        "file": "tsconfig.base.json",
-        "hash": "8779793145300868551"
-      }
-    ]
+    }
   }
 }
