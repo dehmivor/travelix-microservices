@@ -1,0 +1,28 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "ES2022",
+    "module": "esnext",
+    "lib": ["ES2022"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@travelix/api-gateway": ["apps/api-gateway/src/index.ts"],
+      "@travelix/auth-service": ["apps/auth-service/src/index.ts"],
+      "@travelix/user-service": ["apps/user-service/src/index.ts"],
+      "@travelix/tour-service": ["apps/tour-service/src/index.ts"],
+      "@travelix/booking-service": ["apps/booking-service/src/index.ts"],
+      "@travelix/notification-service": ["apps/notification-service/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}
+

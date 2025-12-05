@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tour-service
+  namespace: travelix
+  labels:
+    app: tour-service
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: tour-service
+  template:
+    metadata:
+      labels:
+        app: tour-service
+    spec:
+      containers:
+      - name: tour-service
+        image: your-dockerhub-username/travelix-tour-service:latest
+        ports:
+        - containerPort: 3003
+        envFrom:
+        - configMapRef:
+            name: travelix-config
+        - secretRef:
+            name: travelix-secrets
+        env:
+        - name: PORT
+          value: "3003"
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "256Mi"
+            cpu: "500m"
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: tour-service
+  namespace: travelix
+spec:
+  selector:
+    app: tour-service
+  ports:
+  - port: 80
+    targetPort: 3003
+  type: ClusterIP
+

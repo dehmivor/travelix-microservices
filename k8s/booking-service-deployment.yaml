@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: booking-service
+  namespace: travelix
+  labels:
+    app: booking-service
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: booking-service
+  template:
+    metadata:
+      labels:
+        app: booking-service
+    spec:
+      containers:
+      - name: booking-service
+        image: your-dockerhub-username/travelix-booking-service:latest
+        ports:
+        - containerPort: 3004
+        envFrom:
+        - configMapRef:
+            name: travelix-config
+        - secretRef:
+            name: travelix-secrets
+        env:
+        - name: PORT
+          value: "3004"
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "256Mi"
+            cpu: "500m"
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: booking-service
+  namespace: travelix
+spec:
+  selector:
+    app: booking-service
+  ports:
+  - port: 80
+    targetPort: 3004
+  type: ClusterIP
+

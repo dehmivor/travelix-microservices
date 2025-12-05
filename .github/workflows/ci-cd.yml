@@ -1,0 +1,112 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+env:
+  DOCKER_HUB_USERNAME: ${{ secrets.DOCKER_HUB_USERNAME }}
+  DOCKER_HUB_TOKEN: ${{ secrets.DOCKER_HUB_TOKEN }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: 'npm'
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Build all services
+      run: npm run build
+
+    - name: Run tests
+      run: npm test --if-present
+
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v3
+
+    - name: Login to Docker Hub
+      uses: docker/login-action@v3
+      with:
+        username: ${{ secrets.DOCKER_HUB_USERNAME }}
+        password: ${{ secrets.DOCKER_HUB_TOKEN }}
+
+    - name: Build base image
+      uses: docker/build-push-action@v5
+      with:
+        context: .
+        file: ./Dockerfile
+        push: false
+        tags: travelix-base:latest
+        cache-from: type=gha
+        cache-to: type=gha,mode=max
+
+    - name: Tag and push API Gateway
+      run: |
+        docker tag travelix-base:latest ${{ secrets.DOCKER_HUB_USERNAME }}/travelix-api-gateway:latest
+        docker push ${{ secrets.DOCKER_HUB_USERNAME }}/travelix-api-gateway:latest
+
+    - name: Tag and push Auth Service
+      run: |
+        docker tag travelix-base:latest ${{ secrets.DOCKER_HUB_USERNAME }}/travelix-auth-service:latest
+        docker push ${{ secrets.DOCKER_HUB_USERNAME }}/travelix-auth-service:latest
+
+    - name: Tag and push User Service
+      run: |
+        docker tag travelix-base:latest ${{ secrets.DOCKER_HUB_USERNAME }}/travelix-user-service:latest
+        docker push ${{ secrets.DOCKER_HUB_USERNAME }}/travelix-user-service:latest
+
+    - name: Tag and push Tour Service
+      run: |
+        docker tag travelix-base:latest ${{ secrets.DOCKER_HUB_USERNAME }}/travelix-tour-service:latest
+        docker push ${{ secrets.DOCKER_HUB_USERNAME }}/travelix-tour-service:latest
+
+    - name: Tag and push Booking Service
+      run: |
+        docker tag travelix-base:latest ${{ secrets.DOCKER_HUB_USERNAME }}/travelix-booking-service:latest
+        docker push ${{ secrets.DOCKER_HUB_USERNAME }}/travelix-booking-service:latest
+
+    - name: Tag and push Notification Service
+      run: |
+        docker tag travelix-base:latest ${{ secrets.DOCKER_HUB_USERNAME }}/travelix-notification-service:latest
+        docker push ${{ secrets.DOCKER_HUB_USERNAME }}/travelix-notification-service:latest
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup kubectl
+      uses: azure/setup-kubectl@v3
+
+    - name: Setup Helm
+      uses: azure/setup-helm@v3
+
+    - name: Deploy to Kubernetes
+      run: |
+        kubectl apply -f k8s/namespace.yaml
+        kubectl apply -f k8s/configmap.yaml
+        kubectl apply -f k8s/secrets.yaml
+        kubectl apply -f k8s/api-gateway-deployment.yaml
+        kubectl apply -f k8s/auth-service-deployment.yaml
+        kubectl apply -f k8s/user-service-deployment.yaml
+        kubectl apply -f k8s/tour-service-deployment.yaml
+        kubectl apply -f k8s/booking-service-deployment.yaml
+        kubectl apply -f k8s/notification-service-deployment.yaml
+        kubectl apply -f k8s/ingress.yaml
+

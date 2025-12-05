@@ -1,0 +1,472 @@
+{
+  "version": "6.0",
+  "nxVersion": "18.0.0",
+  "deps": {
+    "@nestjs/common": "^10.3.0",
+    "@nestjs/core": "^10.3.0",
+    "@nestjs/platform-express": "^10.3.0",
+    "@nestjs/typeorm": "^10.0.1",
+    "@nestjs/jwt": "^10.2.0",
+    "@nestjs/passport": "^10.0.3",
+    "@nestjs/config": "^3.1.1",
+    "@nestjs/throttler": "^5.0.1",
+    "@nestjs/bullmq": "^10.0.1",
+    "passport": "^0.7.0",
+    "passport-jwt": "^4.0.1",
+    "bcrypt": "^5.1.1",
+    "typeorm": "^0.3.17",
+    "pg": "^8.11.3",
+    "bullmq": "^5.3.0",
+    "ioredis": "^5.3.2",
+    "ioredis-lock": "^1.0.0",
+    "class-validator": "^0.14.0",
+    "class-transformer": "^0.5.1",
+    "reflect-metadata": "^0.1.14",
+    "rxjs": "^7.8.1",
+    "@nestjs/cli": "^10.3.0",
+    "@nestjs/schematics": "^10.1.0",
+    "@nestjs/testing": "^10.3.0",
+    "@nx/devkit": "18.0.0",
+    "@nx/js": "18.0.0",
+    "@nx/node": "18.0.0",
+    "@nx/nest": "18.0.0",
+    "@nx/eslint": "18.0.0",
+    "@nx/eslint-plugin": "18.0.0",
+    "@types/node": "^20.11.0",
+    "@types/express": "^4.17.21",
+    "@types/passport-jwt": "^4.0.1",
+    "@types/bcrypt": "^5.0.2",
+    "@typescript-eslint/eslint-plugin": "^6.19.0",
+    "@typescript-eslint/parser": "^6.19.0",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.1.3",
+    "nx": "18.0.0",
+    "prettier": "^3.2.4",
+    "ts-jest": "^29.1.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  },
+  "pathMappings": {
+    "@travelix/api-gateway": [
+      "apps/api-gateway/src/index.ts"
+    ],
+    "@travelix/auth-service": [
+      "apps/auth-service/src/index.ts"
+    ],
+    "@travelix/user-service": [
+      "apps/user-service/src/index.ts"
+    ],
+    "@travelix/tour-service": [
+      "apps/tour-service/src/index.ts"
+    ],
+    "@travelix/booking-service": [
+      "apps/booking-service/src/index.ts"
+    ],
+    "@travelix/notification-service": [
+      "apps/notification-service/src/index.ts"
+    ]
+  },
+  "nxJsonPlugins": [
+    {
+      "name": "@nx/eslint/plugin"
+    }
+  ],
+  "fileMap": {
+    "projectFileMap": {
+      "auth-service": [
+        {
+          "file": "apps/auth-service/project.json",
+          "hash": "3666881264473704165"
+        },
+        {
+          "file": "apps/auth-service/src/app/app.module.ts",
+          "hash": "16921515926025842640",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/config",
+            "npm:@nestjs/jwt",
+            "npm:@nestjs/passport"
+          ]
+        },
+        {
+          "file": "apps/auth-service/src/app/auth.controller.ts",
+          "hash": "17940016350401089998",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/auth-service/src/app/auth.service.ts",
+          "hash": "15433466611688632860",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/jwt",
+            "npm:bcrypt"
+          ]
+        },
+        {
+          "file": "apps/auth-service/src/app/dto/login.dto.ts",
+          "hash": "7669419396654838699",
+          "deps": [
+            "npm:class-validator"
+          ]
+        },
+        {
+          "file": "apps/auth-service/src/app/guards/jwt-auth.guard.ts",
+          "hash": "14525840723334210452",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/passport"
+          ]
+        },
+        {
+          "file": "apps/auth-service/src/app/jwt.strategy.ts",
+          "hash": "4903281604023711671",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/passport",
+            "npm:passport-jwt"
+          ]
+        },
+        {
+          "file": "apps/auth-service/src/main.ts",
+          "hash": "3202972616045785349",
+          "deps": [
+            "npm:@nestjs/core",
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/auth-service/tsconfig.app.json",
+          "hash": "7404326211978232618"
+        },
+        {
+          "file": "apps/auth-service/tsconfig.json",
+          "hash": "8394972031469720038"
+        }
+      ],
+      "booking-service": [
+        {
+          "file": "apps/booking-service/project.json",
+          "hash": "4921492525063410877"
+        },
+        {
+          "file": "apps/booking-service/src/app/app.module.ts",
+          "hash": "2389637190207356205",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/config",
+            "npm:@nestjs/typeorm",
+            "npm:@nestjs/bullmq"
+          ]
+        },
+        {
+          "file": "apps/booking-service/src/app/booking.controller.ts",
+          "hash": "14389839354113447586",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/booking-service/src/app/booking.service.ts",
+          "hash": "657761563895864366",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/typeorm",
+            "npm:typeorm",
+            "npm:@nestjs/bullmq",
+            "npm:bullmq",
+            "npm:ioredis",
+            "npm:ioredis-lock"
+          ]
+        },
+        {
+          "file": "apps/booking-service/src/app/dto/create-booking.dto.ts",
+          "hash": "44289497878759177",
+          "deps": [
+            "npm:class-validator"
+          ]
+        },
+        {
+          "file": "apps/booking-service/src/app/entities/booking.entity.ts",
+          "hash": "10285895758222312521",
+          "deps": [
+            "npm:typeorm"
+          ]
+        },
+        {
+          "file": "apps/booking-service/src/main.ts",
+          "hash": "10238759061968870034",
+          "deps": [
+            "npm:@nestjs/core",
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/booking-service/tsconfig.app.json",
+          "hash": "7404326211978232618"
+        },
+        {
+          "file": "apps/booking-service/tsconfig.json",
+          "hash": "8394972031469720038"
+        }
+      ],
+      "user-service": [
+        {
+          "file": "apps/user-service/project.json",
+          "hash": "9141334091619532887"
+        },
+        {
+          "file": "apps/user-service/src/app/app.module.ts",
+          "hash": "14051680158335216909",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/config",
+            "npm:@nestjs/typeorm"
+          ]
+        },
+        {
+          "file": "apps/user-service/src/app/dto/create-user.dto.ts",
+          "hash": "898331157022465231",
+          "deps": [
+            "npm:class-validator"
+          ]
+        },
+        {
+          "file": "apps/user-service/src/app/dto/update-user.dto.ts",
+          "hash": "13655217566156425498",
+          "deps": [
+            "npm:@nestjs/mapped-types"
+          ]
+        },
+        {
+          "file": "apps/user-service/src/app/entities/user.entity.ts",
+          "hash": "7996285679480213105",
+          "deps": [
+            "npm:typeorm"
+          ]
+        },
+        {
+          "file": "apps/user-service/src/app/user.controller.ts",
+          "hash": "15038731620061160634",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/user-service/src/app/user.service.ts",
+          "hash": "15451999303238862031",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/typeorm",
+            "npm:typeorm"
+          ]
+        },
+        {
+          "file": "apps/user-service/src/main.ts",
+          "hash": "10441740590301627967",
+          "deps": [
+            "npm:@nestjs/core",
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/user-service/tsconfig.app.json",
+          "hash": "7404326211978232618"
+        },
+        {
+          "file": "apps/user-service/tsconfig.json",
+          "hash": "8394972031469720038"
+        }
+      ],
+      "api-gateway": [
+        {
+          "file": "apps/api-gateway/project.json",
+          "hash": "15240603015143207397"
+        },
+        {
+          "file": "apps/api-gateway/src/app/app.controller.ts",
+          "hash": "1833228072795150815",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/api-gateway/src/app/app.module.ts",
+          "hash": "2869224033133700397",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/throttler",
+            "npm:@nestjs/core"
+          ]
+        },
+        {
+          "file": "apps/api-gateway/src/main.ts",
+          "hash": "12071328882543511899",
+          "deps": [
+            "npm:@nestjs/core",
+            "npm:@nestjs/throttler",
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/api-gateway/tsconfig.app.json",
+          "hash": "7404326211978232618"
+        },
+        {
+          "file": "apps/api-gateway/tsconfig.json",
+          "hash": "8394972031469720038"
+        }
+      ],
+      "notification-service": [
+        {
+          "file": "apps/notification-service/project.json",
+          "hash": "13008620087076254700"
+        },
+        {
+          "file": "apps/notification-service/src/app/app.module.ts",
+          "hash": "15489036494428546639",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/config",
+            "npm:@nestjs/bullmq"
+          ]
+        },
+        {
+          "file": "apps/notification-service/src/app/notification.controller.ts",
+          "hash": "2739700311679842859",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/notification-service/src/app/notification.processor.ts",
+          "hash": "7457378519193881263",
+          "deps": [
+            "npm:@nestjs/bullmq",
+            "npm:bullmq"
+          ]
+        },
+        {
+          "file": "apps/notification-service/src/main.ts",
+          "hash": "7238246808422197592",
+          "deps": [
+            "npm:@nestjs/core",
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/notification-service/tsconfig.app.json",
+          "hash": "7404326211978232618"
+        },
+        {
+          "file": "apps/notification-service/tsconfig.json",
+          "hash": "8394972031469720038"
+        }
+      ],
+      "tour-service": [
+        {
+          "file": "apps/tour-service/project.json",
+          "hash": "4371807590552638748"
+        },
+        {
+          "file": "apps/tour-service/src/app/app.module.ts",
+          "hash": "1135944338990111685",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/config",
+            "npm:@nestjs/typeorm"
+          ]
+        },
+        {
+          "file": "apps/tour-service/src/app/dto/create-tour.dto.ts",
+          "hash": "12873910188580571120",
+          "deps": [
+            "npm:class-validator"
+          ]
+        },
+        {
+          "file": "apps/tour-service/src/app/dto/update-tour.dto.ts",
+          "hash": "85312618830587803",
+          "deps": [
+            "npm:@nestjs/mapped-types"
+          ]
+        },
+        {
+          "file": "apps/tour-service/src/app/entities/tour.entity.ts",
+          "hash": "14029482715805417705",
+          "deps": [
+            "npm:typeorm"
+          ]
+        },
+        {
+          "file": "apps/tour-service/src/app/tour.controller.ts",
+          "hash": "3914632008109309716",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/tour-service/src/app/tour.service.ts",
+          "hash": "15215332978719596075",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/typeorm",
+            "npm:typeorm"
+          ]
+        },
+        {
+          "file": "apps/tour-service/src/main.ts",
+          "hash": "7597873749396614629",
+          "deps": [
+            "npm:@nestjs/core",
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "apps/tour-service/tsconfig.app.json",
+          "hash": "7404326211978232618"
+        },
+        {
+          "file": "apps/tour-service/tsconfig.json",
+          "hash": "8394972031469720038"
+        }
+      ]
+    },
+    "nonProjectFiles": [
+      {
+        "file": ".eslintrc.json",
+        "hash": "13747010344719918160"
+      },
+      {
+        "file": ".gitignore",
+        "hash": "9777035501378713631"
+      },
+      {
+        "file": ".prettierrc",
+        "hash": "11191096712733701435"
+      },
+      {
+        "file": "LICENSE",
+        "hash": "14964339060591562771"
+      },
+      {
+        "file": "README.md",
+        "hash": "15595636116897513261"
+      },
+      {
+        "file": "nx.json",
+        "hash": "346311122596494916"
+      },
+      {
+        "file": "package.json",
+        "hash": "9470516030610254912"
+      },
+      {
+        "file": "tsconfig.base.json",
+        "hash": "8779793145300868551"
+      }
+    ]
+  }
+}
